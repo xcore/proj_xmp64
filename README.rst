@@ -3,7 +3,7 @@
 
 :Stable release:  unreleased
 
-:Status:  feature complete
+:Status:  does not compile
 
 :Maintainer:  https://github.com/henkmuller
 
@@ -21,6 +21,7 @@ Key Features
 To Do
 =====
 
+* Make it compile - XN file is in the wrong place at present
 * Make use of Ethernet module rather than use half hearted copy.
 
 Repo Overview
