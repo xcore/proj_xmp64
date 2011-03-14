@@ -1,0 +1,11 @@
+XCC_FLAGS += -O3 -DPROMISCUOUS
+
+
+ETHERNET_SOURCE_DIRS = mac/server \
+                  mac/client 
+
+EXCLUDE_FILES += 
+
+SOURCE_DIRS += $(ETHERNET_SOURCE_DIRS) 
+INCLUDE_DIRS += $(ETHERNET_SOURCE_DIRS)
+

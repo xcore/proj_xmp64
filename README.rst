@@ -21,7 +21,7 @@ Key Features
 To Do
 =====
 
-None
+* Make use of Ethernet module rather than use half hearted copy.
 
 Repo Overview
 =============

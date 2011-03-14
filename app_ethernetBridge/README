@@ -1,0 +1,35 @@
+XK_XMP-64 ETHERNET BRIDGE
+-------------------------
+
+DESCRIPTION:
+
+This software uses the ethernet MAC stack to provide a bridge between the two ethernet ports on an XMP-64.
+
+REQUIRED TOOLS:
+
+Xmos Desktop Development Tools 9.9.2 or above.
+
+REQUIRED HARDWARE:
+
+An XK-XMP-64 is required.
+
+INSTALLATION AND RUNNING THE DEMO (COMMAND LINE):
+
+From an enviroment that can access the XMOS Desktop Development tools.
+Unzip the zipfile and from the top level directory run:
+
+       xmake all
+
+will build the demo.
+
+The executable can be found in the bin/XK-XMP-64 directory and can be
+run with xrun e.g.
+
+       xrun --io bin/XK-XMP-64/test1.xe
+
+NOTES
+
+OTHER DOCUMENTATION:
+
+  CHANGELOG            - release change log
+
