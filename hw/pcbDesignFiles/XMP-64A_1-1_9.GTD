@@ -1,0 +1,189 @@
+{Program	GerbTool for Layout
+	{Version	8.0}
+	{Created	Fri Feb 26 12:18:10 2010}
+}
+{Environment
+	{FilesPath  V:\DEV\A005\CAD}
+}
+{Layers
+	{Layer  1
+		{File        XMP-64A_1-1_9.TOP}
+		{LyrName     -}
+		{ApList      }
+		{Visibility  On}
+		{FlashColor  Green}
+		{DrawColor   Green}
+		{Type        Top}
+	}
+	{Layer  2
+		{File        XMP-64A_1-1_9.GND}
+		{LyrName     -}
+		{ApList      }
+		{Visibility  On}
+		{FlashColor  Blue}
+		{DrawColor   Blue}
+		{Type        Plane}
+	}
+	{Layer  3
+		{File        XMP-64A_1-1_9.PWR}
+		{LyrName     -}
+		{ApList      }
+		{Visibility  On}
+		{FlashColor  vga16magenta}
+		{DrawColor   vga16magenta}
+		{Type        Plane}
+	}
+	{Layer  4
+		{File        XMP-64A_1-1_9.IN1}
+		{LyrName     -}
+		{ApList      }
+		{Visibility  On}
+		{FlashColor  Cyan}
+		{DrawColor   Cyan}
+		{Type        Inner}
+	}
+	{Layer  5
+		{File        XMP-64A_1-1_9.IN2}
+		{LyrName     -}
+		{ApList      }
+		{Visibility  On}
+		{FlashColor  Magenta}
+		{DrawColor   Magenta}
+		{Type        Inner}
+	}
+	{Layer  6
+		{File        XMP-64A_1-1_9.IN3}
+		{LyrName     -}
+		{ApList      }
+		{Visibility  On}
+		{FlashColor  vga16red}
+		{DrawColor   vga16red}
+		{Type        Inner}
+	}
+	{Layer  7
+		{File        XMP-64A_1-1_9.IN4}
+		{LyrName     -}
+		{ApList      }
+		{Visibility  On}
+		{FlashColor  Blue}
+		{DrawColor   Blue}
+		{Type        Inner}
+	}
+	{Layer  8
+		{File        XMP-64A_1-1_9.IN5}
+		{LyrName     -}
+		{ApList      }
+		{Visibility  On}
+		{FlashColor  vga16green}
+		{DrawColor   vga16green}
+		{Type        Plane}
+	}
+	{Layer  9
+		{File        XMP-64A_1-1_9.BOT}
+		{LyrName     -}
+		{ApList      }
+		{Visibility  On}
+		{FlashColor  Red}
+		{DrawColor   Red}
+		{Type        Bottom}
+	}
+	{Layer  10
+		{File        XMP-64A_1-1_9.SMT}
+		{LyrName     -}
+		{ApList      }
+		{Visibility  On}
+		{FlashColor  Red}
+		{DrawColor   Red}
+		{Type        Other}
+	}
+	{Layer  11
+		{File        XMP-64A_1-1_9.SMB}
+		{LyrName     -}
+		{ApList      }
+		{Visibility  On}
+		{FlashColor  Green}
+		{DrawColor   Green}
+		{Type        Other}
+	}
+	{Layer  12
+		{File        XMP-64A_1-1_9.SPT}
+		{LyrName     -}
+		{ApList      }
+		{Visibility  On}
+		{FlashColor  Red}
+		{DrawColor   Red}
+		{Type        Other}
+	}
+	{Layer  13
+		{File        XMP-64A_1-1_9.SPB}
+		{LyrName     -}
+		{ApList      }
+		{Visibility  On}
+		{FlashColor  Green}
+		{DrawColor   Green}
+		{Type        Other}
+	}
+	{Layer  14
+		{File        XMP-64A_1-1_9.SST}
+		{LyrName     -}
+		{ApList      }
+		{Visibility  On}
+		{FlashColor  White}
+		{DrawColor   White}
+		{Type        Other}
+	}
+	{Layer  15
+		{File        XMP-64A_1-1_9.SSB}
+		{LyrName     -}
+		{ApList      }
+		{Visibility  On}
+		{FlashColor  Cyan}
+		{DrawColor   Cyan}
+		{Type        Other}
+	}
+	{Layer  16
+		{File        XMP-64A_1-1_9.DRD}
+		{LyrName     -}
+		{ApList      }
+		{Visibility  On}
+		{FlashColor  gray}
+		{DrawColor   gray}
+		{Type        Other}
+	}
+	{Layer  17
+		{File        XMP-64A_1-1_9.FAB}
+		{LyrName     -}
+		{ApList      }
+		{Visibility  On}
+		{FlashColor  col3}
+		{DrawColor   col3}
+		{Type        Other}
+	}
+	{Layer  18
+		{File        XMP-64A_1-1_9.CKT}
+		{LyrName     -}
+		{ApList      }
+		{Visibility  On}
+		{FlashColor  col1}
+		{DrawColor   col1}
+		{Type        Other}
+	}
+}
+{Format Gerber
+	{Dialect           RS274X}
+	{m.n               3.4}
+	{Mode              Absolute}
+	{ZeroSuppression   Leading}
+	{Terminator        0x2a, 0xD, 0xA}
+	{Metric            No}
+	{Modal             No}
+	{UserData          Yes}
+	{Nets              No}
+	{Gcmds             Yes}
+	{CharSet           ASCII}
+	{Arcs360           No}
+	{ArcsModal         Yes}
+	{HonorCrLf         No}
+	{Comments          Yes}
+	{Flags             0}
+}
