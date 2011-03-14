@@ -1,0 +1,157 @@
+\section{Traffic Patterns \label{sec:traffic}}
+
+In order to evaluate the performance of interconnection networks, \emph{synthetic
+workloads} can be generated. These are a simplification of real execution workloads,
+but they capture the important \emph{spatial} and \emph{temporal} elements of
+them. With the XK-XMP-64, we are interested in the temporal characteristics of
+different traffic patterns and the congestion that they induce over the network.
+
+\subsection{Permutation Patterns}
+
+Synthetic traffic patterns are commonly considered as a permutation $\pi$, which
+provides a one-to-one mapping from source addresses $s$ to destination addresses
+$d$: $$d = \pi(s).$$ Because permutation traffic concentrates load on individual
+source-destination pairs, they provide good stress-testing \cite{dally04}. 
+
+Bit permutations calculate each bit of the destination address $d_i$ as a
+function of one bit of the source address $s_i$ such that $$d_i = s_{f(i) \oplus
+g(i)}.$$ The following bit permutations were used to evaluate performance.
+In all cases, $b$ is the number of bits in the pattern, in the case of
+hypercube identifiers $b=d$.
+
+\begin{itemize}
+
+\item {\bf Shuffle.} A Fast Fourier Transform or sorting algorithm will
+demonstrate communications characteristic of the shuffle permutation:
+$$d_i=s_{i-1\mod b}.$$ 
+Equivalently, the identifier is circularly shifted by 1-bit.
+
+\item {\bf Transpose.} Matrix transpose or corner-turn operations induce the
+transpose permutation: $$d_i = s_{i+\frac{b}{2}\mod b}.$$ This is equivalent to
+a circular shift of an $b$-bit identifier by $b/2$.  The transpose permutation
+is a worst case for a hypercube network as it causes all source-destination
+pairs to be separated by the full diameter of the network, and hence all nodes
+to be maximally loaded.  For the XK-XMP-64 as are interested in the four dimensions
+of the hypercube, the transpose relates to a circular shift of two, performed on
+the four most significant bits.
+
+\item {\bf Bit-complement.} Each bit is negated: $$d_i = \bar{s_i}.$$
+
+\item {\bf Bit-reverse.} The binary representation is reversed: $$d_i = s_{b-i-1}.$$
+
+\item {\bf Random.} Random permutations were also used to provide an
+average-case. These differ slightly to random traffic patterns, where each node
+is equally likely to send to each destination, possibly resulting in many
+sources sending to a single destination.
+
+\end{itemize}
+
+\subsection{Method}
+
+As we are interested in the spatial locality of the traffic permutations,
+measurements can be taken from a single burst of traffic between all
+source-destination pairs. If this is performed in unison by all nodes, i.e.\
+they begin sending at the same instance, then maximum congestion will occur.
+
+To do this it is necessary to perform a global clock synchronisation, so that
+they can synchronise their entry into the permutation and calculate the
+latencies of messages sent. Measurements are taken over 10,000 runs of the
+permutation to ensure values are representative of the underlying process.
+
+We will look at two important elements of the traffic patterns: distribution of
+message latencies and average latencies. To look at the latency distribution,
+each node records the latency of each message in a set of frequency bins. To
+determine the bin ranges, the traffic pattern is simulated for a number of runs
+so that all nodes can share a maximum latency value, from which the bin range is
+determined. At the end of the experiment, a master node collates the frequency
+distributions from all other nodes. To determine average latency, again each
+node records total latency and then calculated average latency on completion,
+passing values back to the master node for collation into a global average.
+
+For random permutations, each iteration of the experiment is conducted with a
+new permutation so that the measurements are unbiased towards some particular
+configuration. This is achieved by each node, each iteration, re-shuffling the
+permutation, achieving pseudo-randomness using a cyclic redundancy check (CRC)
+instruction. An initial global seed value is distributed to all nodes so they
+generate the same sequence of random numbers. According to the permutation,
+channel end destinations are manually configured during execution.
+
+With regards to the software implementation, each network node consists of two
+threads; one sender and one receiver.  This is necessary for message lengths
+greater that the buffering between nodes (16 Bytes). As each dimension of the
+hypercube is connected by four links, traffic congestion will be highest when
+every link is fully utilised. This can be achieved by running 4 pairs of send
+and receive processes on each core.  Alternatively, the number of available
+links between each processor can be altered by modifying the XN mapping file.
+
+\subsection{Average Latency}
+
+Figure \ref{fig:avglatency} shows the average latency of messages over all
+nodes, for varying message lengths. These results were obtained from all 64
+nodes, with each core running a single pair of send and receive threads.
+Processors are connected with a single link in each dimension to maximise
+congestion. Note that there is very little, or even no penalty for sending short
+messages.
+
+\begin{figure}
+\centering
+%\includegraphics[scale=1]{../images/results/averages/MsgSize-Latency.pdf}
+\input{../images/average-latency}
+
+\caption{Log-log plot of average latency as a function of message size for a 64
+nodes.}
+
+\label{fig:avglatency}
+\end{figure}
+
+\subsection{Latency Distributions}
+
+Figures \ref{fig:shuffle}, \ref{fig:transpose}, \ref{fig:bitcomp},
+\ref{fig:bitrev} and \ref{fig:random} show the latency distributions for a
+message length of 32 bytes, with 64 cores and single wire interconnects.
+
+The latency distribution for the random permutation in \fig{random} clearly
+shows distributions around each of the 1, 2, 3 and 4 node hops. The
+distributions are asymmetric because a hop must always take at least some period
+of time, but a message can be delayed in a network for any amount of time.
+
+\begin{figure}
+\centering
+%\includegraphics[scale=1]{../images/results/histograms/Histogram_SHUFFLE.pdf}
+\input{../images/latency-dist-shuffle}
+\caption{Latency distribution for a shuffle permutation}
+\label{fig:shuffle}
+\end{figure}
+
+\begin{figure}
+\centering
+%\includegraphics[scale=1]{../images/results/histograms/Histogram_TRANSPOSE.pdf}
+\input{../images/latency-dist-transpose}
+\caption{Latency distribution for a transpose permutation}
+\label{fig:transpose}
+\end{figure}
+
+\begin{figure}
+\centering
+%\includegraphics[scale=1]{../images/results/histograms/Histogram_BITCOMP.pdf}
+\input{../images/latency-dist-bitcomp}
+\caption{Latency distribution for a bit-complement permutation}
+\label{fig:bitcomp}
+\end{figure}
+
+\begin{figure}
+\centering
+%\includegraphics[scale=1]{../images/results/histograms/Histogram_BITREV.pdf}
+\input{../images/latency-dist-bitrev}
+\caption{Latency distribution for a bit-reverse permutation}
+\label{fig:bitrev}
+\end{figure}
+
+\begin{figure}
+\centering
+%\includegraphics[scale=1]{../images/results/histograms/Histogram_RANDOM.pdf}
+\input{../images/latency-dist-random}
+\caption{Latency distribution for random permutations}
+\label{fig:random}
+\end{figure}
+

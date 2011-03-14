@@ -1,0 +1,15 @@
+set terminal postscript eps enhanced color "Helvetica" 12
+set output "Message-Size-vs.-Average-Latency.ps"
+set size 0.5,0.5
+set key left top
+set logscale xy
+set xlabel "Message size (bytes)"
+set ylabel "Average Latency (ns)"
+plot \
+	"SHUFFLE.dat" title "SHUFFLE" with linespoints,\
+	"TRANSPOSE.dat" title "TRANSPOSE" with linespoints,\
+	"BITCOMP.dat" title "BITCOMP" with linespoints,\
+	"BITREV.dat" title "BITREV" with linespoints,\
+	"RANDOM.dat" title "RANDOM" with linespoints
+
+

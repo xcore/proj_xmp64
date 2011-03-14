@@ -1,0 +1,62 @@
+\documentclass{xmos}
+
+\usepackage{amsmath}
+\renewcommand{\familydefault}{\sfdefault}
+%\usepackage{sfmath}
+\usepackage{graphicx,subfig,algorithm,algorithmic,comment,url,fullpage}
+
+\renewcommand{\algorithmicwhile}{\textbf{par}}
+\renewcommand{\algorithmicendwhile}{\algorithmicend\ \algorithmicwhile}
+
+\newcommand{\hex}{\text{0x}}
+\newcommand{\clkSyncMaster}{\mathop{\mathrm{clkSyncMaster}()}}
+\newcommand{\clkSyncSlave}{\mathop{\mathrm{clkSyncSlave}()}}
+
+\newcommand{\fig}[1]{Figure~\ref{fig:#1}} 
+\newcommand{\tab}[1]{Table~\ref{tab:#1}}
+\newcommand{\chap}[1]{Chapter~\ref{chap:#1}}
+\newcommand{\sect}[1]{Section~\ref{sec:#1}}
+\newcommand{\algo}[1]{Algorithm~\ref{alg:#1}}
+
+\begin{document}
+
+\title{XK-XMP-64 Performance Measurements}
+\author{James Hanlon}
+\version{1.0}
+\yearmonthday{2010}{02}{22}
+
+\maketitle
+
+\input{intro}
+\input{topology}
+\input{sync}
+\input{traffic}
+
+\begin{thebibliography}{9}
+
+\bibitem{dally04}
+    W. J Dally, B. Towles
+    \emph{Principles and practices of interconnection networks}
+    Morgan Kauffman Pub, 2004
+
+\bibitem{leighton92}
+    F. T. Leighton,
+    \emph{Introduction to Parallel Algorithms and Architectures : Arrays, Trees, Hypercubes}
+    Morgan Kauffman Pub, 1992
+
+\end{thebibliography}
+
+\section{Document History}
+
+\begin{small}
+\renewcommand{\arraystretch}{1.25}
+\begin{tabular}{| p{20mm} | p{12mm} | p{88mm}|}
+\hline
+\textbf{Date} & \textbf{Release} & \textbf{Comment} \\
+\hline
+2010/02/22 & 1.0 & First release. \\
+ \hline
+\end{tabular}
+\end{small}
+
+\end{document}
