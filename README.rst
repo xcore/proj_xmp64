@@ -1,5 +1,5 @@
-<title>
-.......
+XK-XMP-64 example software
+..........................
 
 :Stable release:  unreleased
 
@@ -27,14 +27,14 @@ To Do
 Repo Overview
 =============
 
-This repo contains a set of test programs for hte XMP-64, and some
+This repo contains a set of test programs for the XMP-64, and some
 programs that demonstrate its functionality. It also contains some
 documentation on the XMP-64.
 
 Known Issues
 ============
 
-* XMP-64 file is tool specific.
+* The XK-XMP-64.xn file is tool-version specific.
 
 Required Repositories
 ================
