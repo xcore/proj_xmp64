@@ -3,7 +3,7 @@ XK-XMP-64 example software
 
 :Stable release:  unreleased
 
-:Status:  does not compile
+:Status:  feature complete
 
 :Maintainer:  https://github.com/henkmuller
 
@@ -21,15 +21,23 @@ Key Features
 To Do
 =====
 
-* Make it compile - XN file is in the wrong place at present
-* Make use of Ethernet module rather than use half hearted copy.
+None
 
 Repo Overview
 =============
 
 This repo contains a set of test programs for the XMP-64, and some
 programs that demonstrate its functionality. It also contains some
-documentation on the XMP-64.
+documentation on the XMP-64. 
+
+* app_ethernetExample: executing this program will bridge the two ethernet
+  ports
+
+* app_multipleLeds: switches all leds on and off
+
+* app_linkTest: tests all the links. Leds should in turn switch on and off
+
+* app_singleLed: simplest example.
 
 Known Issues
 ============
@@ -39,7 +47,8 @@ Known Issues
 Required Repositories
 ================
 
-None
+* sc_ethernet
+* xcommon
 
 Support
 =======
