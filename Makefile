@@ -40,7 +40,7 @@
 # This variable should contain a space separated list of all
 # the directories containing buildable applications (usually
 # prefixed with the app_ prefix)
-BUILD_SUBDIRS = app_linkTest app_multipleLeds app_singleLed app_ethernetBridge
+BUILD_SUBDIRS = app_linkTest app_multipleLeds app_singleLed app_ethernetBridge app_ethernetExample
 
 # This variable should contain a space separated list of all
 # the directories containing buildable plugins (usually
